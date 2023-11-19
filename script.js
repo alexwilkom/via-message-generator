@@ -19,3 +19,14 @@ function outputQuote(quotes) {
 }
 
 outputQuote(quotes);
+
+const characterStrengths = {
+    'Wisdom': ['Creativity', 'Curiosity', 'Judgment', 'Love of learning', 'Perspective'],
+    'Courage': ['Bravery', 'Honesty', 'Perseverance', 'Zest'],
+    'Humanity': ['Kindness', 'Love', 'Social Intelligence'],
+    'Justice': ['Fairness', 'Leadership', 'Teamwork'],
+    'Temperance': ['Forgiveness', 'Humility', 'Prudence', 'Self-Regulation'],
+    'Transcendence': ['Appreciation of Beauty and Excellence', 'Gratitude', 'Hope', 'Humor', 'Spirituality'],
+}
+
+console.log(Object.keys(characterStrengths).length);
