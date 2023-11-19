@@ -1,13 +1,3 @@
-function generateRandomNumber(num) {
-    return Math.floor(Math.random() * num);
-}
-
-function outputQuote(quotes) {
-    const indexNumber = generateRandomNumber(quotes.length);
-    const quote = quotes[indexNumber];
-    console.log(quote);
-}
-
 // Quotes
 const quotes = [
     "Life is like riding a bicycle. To keep your balance, you must keep moving.",
@@ -18,7 +8,6 @@ const quotes = [
     "You make a life out of what you have, not what you're missing.",
     "It's how you deal with failure that determines how you achieve success."
 ]
-
 // Strengths
 const characterStrengths = {
     'Wisdom': ['Creativity', 'Curiosity', 'Judgment', 'Love of Learning', 'Perspective'],
@@ -76,6 +65,31 @@ const descriptionStrengths = {
     'Humor': 'Humor means to recognize what is amusing in situations, and to offer the lighter side to others. Humor is an important lubricant to social interactions, and can contribute to team building or moving toward group goals. Where other strengths are more or less essential for achieving certain types of goals or dealing with certain types of problems, humor is rarely an essential component to positive social interactions, but it is often a desirable one. It is also a valuable method of coping with distressing situations.',
 
     'Spirituality': 'The strength of spirituality has many dimensions. Some of these include meaning, purpose, life calling, beliefs about the universe, the expression of virtue/goodness, and practices that connect with the transcendent. Spirituality has been defined consistently by scientists as the search for or connection with “the sacred”. The sacred might be that which is blessed, holy, revered, or particularly special. This can be secular or non-secular: sacredness might be pursued as the search for a purpose in life or as a close relationship with something greater; the sacred might be experienced in the forgiveness offered by a child, a humble moment between a leader and a subordinate, an awe-inspiring sunset, a profound experience during meditation or a religious service, or the self-sacrificing kindness of a stranger. As a character strength, spirituality involves the belief that there is a dimension to life that is beyond human understanding.'
+}
+
+function getRandomVirtue(obj) {
+    const listKeys = Object.keys(obj);
+    const index = generateRandomNumber(listKeys.length);
+    const virtue = listKeys[index];
+    return virtue;
+}
+function getRandomStrength(obj) {
+    const virtue = getRandomVirtue(characterStrengths);
+    const strengthsList = characterStrengths[virtue];
+    const index = generateRandomNumber(strengthsList.length);
+    const strength = strengthsList[index];
+    return strength;
+}
+
+function outputQuote(quotes) {
+    const indexNumber = generateRandomNumber(quotes.length);
+    const quote = quotes[indexNumber];
+    console.log(quote);
+}
+
+// Utility function
+function generateRandomNumber(num) {
+    return Math.floor(Math.random() * num);
 }
 
 outputQuote(quotes);
