@@ -93,16 +93,16 @@ function getQuote(quotes) {
     const quote = quotes[indexNumber];
     return quote;
 }
-
 function outputMessage() {
     const virtue = getRandomVirtue(characterStrengths);
     const strength = getRandomStrength(characterStrengths, virtue);
     const description = getStrengthDescription(strength);
     const quote = getQuote(quotes);
-    const message = `\nThis is a random message generator describing one of the many character strengths we have in our possession, some in a greater extent than others.\n\nCharacter Strength: ${strength}.\nWhich virtue is this strength? ${strength} is a strength within the virtue category of ${virtue.toLowerCase()}.\nWhat is ${strength}? ${description}\n\n`;
+    const message = `\nThis is a random message generator describing one of the many character strengths we have in our possession, some in a greater extent than others.\n\n\n"${strength}".\nWhich virtue is this character strength? -> ${strength} is a strength within the virtue category of ${virtue.toLowerCase()}.\nWhat is ${strength}? -> ${description}\n\n`;
 
     console.log(message);
-    console.log(`Inspirational quote: "${quote}"\n`);
+    console.log(`Inspirational quote: "${quote}"\n\n`);
+    console.log(`Virtues, strengths and descriptions of character strengths have been provided by https://www.viacharacter.org\n`)
 }
 
 outputMessage();
