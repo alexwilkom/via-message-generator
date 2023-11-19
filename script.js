@@ -8,7 +8,7 @@ const quotes = [
     "You make a life out of what you have, not what you're missing.",
     "It's how you deal with failure that determines how you achieve success."
 ]
-// Strengths
+// Strengths; 
 const characterStrengths = {
     'Wisdom': ['Creativity', 'Curiosity', 'Judgment', 'Love of Learning', 'Perspective'],
     'Courage': ['Bravery', 'Honesty', 'Perseverance', 'Zest'],
@@ -16,7 +16,8 @@ const characterStrengths = {
     'Justice': ['Fairness', 'Leadership', 'Teamwork'],
     'Temperance': ['Forgiveness', 'Humility', 'Prudence', 'Self-Regulation'],
     'Transcendence': ['Appreciation of Beauty and Excellence', 'Gratitude', 'Hope', 'Humor', 'Spirituality'],
-}
+    
+} // characterStrengths is an object composed with 'virtue' keys with associated arrays of 'strength' values
 const descriptionStrengths = {
     'Creativity': 'Creativity is thinking of new ways to do things. It involves producing ideas or behaviors that are original. However, originality is not enough: whatever is created, whether an idea or a product, must also be useful or adaptable. For example, you might write a blog post that is unique because it is entirely gibberish. That’s not going to be useful, so it would not be considered creative.',
 
@@ -67,29 +68,42 @@ const descriptionStrengths = {
     'Spirituality': 'The strength of spirituality has many dimensions. Some of these include meaning, purpose, life calling, beliefs about the universe, the expression of virtue/goodness, and practices that connect with the transcendent. Spirituality has been defined consistently by scientists as the search for or connection with “the sacred”. The sacred might be that which is blessed, holy, revered, or particularly special. This can be secular or non-secular: sacredness might be pursued as the search for a purpose in life or as a close relationship with something greater; the sacred might be experienced in the forgiveness offered by a child, a humble moment between a leader and a subordinate, an awe-inspiring sunset, a profound experience during meditation or a religious service, or the self-sacrificing kindness of a stranger. As a character strength, spirituality involves the belief that there is a dimension to life that is beyond human understanding.'
 }
 
+// Helper function to get a random number
+function generateRandomNumber(num) {
+    return Math.floor(Math.random() * num);
+}
+
 function getRandomVirtue(obj) {
     const listKeys = Object.keys(obj);
     const index = generateRandomNumber(listKeys.length);
     const virtue = listKeys[index];
     return virtue;
 }
-function getRandomStrength(obj) {
-    const virtue = getRandomVirtue(characterStrengths);
-    const strengthsList = characterStrengths[virtue];
+function getRandomStrength(obj, virtue) {
+    const strengthsList = obj[virtue];
     const index = generateRandomNumber(strengthsList.length);
     const strength = strengthsList[index];
     return strength;
 }
-
-function outputQuote(quotes) {
+function getStrengthDescription(strength) {
+    return descriptionStrengths[strength];
+}
+function getQuote(quotes) {
     const indexNumber = generateRandomNumber(quotes.length);
     const quote = quotes[indexNumber];
-    console.log(quote);
+    return quote;
 }
 
-// Utility function
-function generateRandomNumber(num) {
-    return Math.floor(Math.random() * num);
-}
+function outputMessage() {
+    const virtue = getRandomVirtue(characterStrengths);
+    const strength = getRandomStrength(characterStrengths, virtue);
+    const description = getStrengthDescription(strength);
+    const quote = getQuote(quotes);
+    const message = 
+    ` This is a random message generator describing one of the many character strengths we have in our possession, some in a greater extent than others. \n
+    Character Strength: ${strength}. \n
+    Which virtue is this strength? ${strength} is a strength within the virtue category of ${virtue.toLowerCase()}. \n
+    What is ${strength}? ${description} \n `;
 
-outputQuote(quotes);
+    console.log(message);
+}
