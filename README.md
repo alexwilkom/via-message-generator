@@ -1,6 +1,4 @@
-# Character Strengths Message Generator
-
-## Introduction
+# VIA Character Strengths Message Generator
 
 This Node.js application generates random messages about character strengths, including a randomly chosen virtue, a strength associated with that virtue, a description of the strength, and an inspirational quote.
 
